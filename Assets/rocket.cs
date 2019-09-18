@@ -2,40 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rocket : MonoBehaviour
-{   Rigidbody rigidBody;
-     AudioSource audioSource;
+public class rocket : MonoBehaviour {
+    Rigidbody rigidBody;
+    AudioSource audioSource;
     // Start is called before the first frame update
-    void Start()
-    {
-        rigidBody = GetComponent<Rigidbody>();
-        audioSource = GetComponent<AudioSource>();
+    void Start () {
+        rigidBody = GetComponent<Rigidbody> ();
+        audioSource = GetComponent<AudioSource> ();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        ProcessInput();
+    void Update () {
+        boost ();
+        Rotate ();
     }
-    private void ProcessInput()
-    {
-        if (Input.GetKey(KeyCode.Space)) //can boost while rotating
+    private void boost () {
+        if (Input.GetKey (KeyCode.Space)) //can boost while rotating
         {
-            rigidBody.AddRelativeForce(Vector3.up); 
-            if(!audioSource.isPlaying) //so it doesn't layer
+            rigidBody.AddRelativeForce (Vector3.up);
+            if (!audioSource.isPlaying) //so it doesn't layer
             {
-                audioSource.Play();
+                audioSource.Play ();
             }
+        } else {
+            audioSource.Stop ();
         }
-        else{
-            audioSource.Stop();
-        }
-        if (Input.GetKey(KeyCode.A)){
-           transform.Rotate(Vector3.forward); 
-          }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(-Vector3.forward);
-         }
     }
+    private void Rotate () {
+        rigidBody.freezeRotation = true; // take manual control of rotation
+
+        if (Input.GetKey (KeyCode.A)) {
+            transform.Rotate (Vector3.forward);
+        } else if (Input.GetKey (KeyCode.D)) {
+            transform.Rotate (-Vector3.forward);
+        }
+
+        rigidBody.freezeRotation = false; // resume physics control
+    }
+    
 }
