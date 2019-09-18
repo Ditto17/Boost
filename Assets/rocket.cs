@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class rocket : MonoBehaviour
 {   Rigidbody rigidBody;
+     AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -17,10 +19,16 @@ public class rocket : MonoBehaviour
     }
     private void ProcessInput()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space)) //can boost while rotating
         {
             rigidBody.AddRelativeForce(Vector3.up); 
-            
+            if(!audioSource.isPlaying) //so it doesn't layer
+            {
+                audioSource.Play();
+            }
+        }
+        else{
+            audioSource.Stop();
         }
         if (Input.GetKey(KeyCode.A)){
            transform.Rotate(Vector3.forward); 
