@@ -18,6 +18,21 @@ public class rocket : MonoBehaviour {
         boost ();
         Rotate ();
     }
+
+     void OnCollisionEnter(Collision collision) {
+        switch (collision.gameObject.tag)
+        {
+            case "Friendly":
+                print("OK");
+                break;
+            case "Fuel":
+                print("Fuel");
+                break;
+            default:
+                print("Dead");
+                break;
+        }
+    }
     private void boost () {
         if (Input.GetKey (KeyCode.Space)) //can boost while rotating
         {
@@ -33,14 +48,13 @@ public class rocket : MonoBehaviour {
     private void Rotate () {
         rigidBody.freezeRotation = true; // take manual control of rotation
 
-        
         float rotationThisFrame = rcsThrust * Time.deltaTime;
 
         if (Input.GetKey (KeyCode.A)) {
-           
+
             transform.Rotate (Vector3.forward * rotationThisFrame);
         } else if (Input.GetKey (KeyCode.D)) {
-            
+
             transform.Rotate (-Vector3.forward * rotationThisFrame);
         }
 
