@@ -19,17 +19,16 @@ public class rocket : MonoBehaviour {
         Rotate ();
     }
 
-     void OnCollisionEnter(Collision collision) {
-        switch (collision.gameObject.tag)
-        {
+    void OnCollisionEnter (Collision collision) {
+        switch (collision.gameObject.tag) {
             case "Friendly":
-                print("OK");
+                print ("OK");
                 break;
             case "Fuel":
-                print("Fuel");
+                print ("Fuel");
                 break;
             default:
-                print("Dead");
+                print ("Dead");
                 break;
         }
     }
@@ -52,10 +51,10 @@ public class rocket : MonoBehaviour {
 
         if (Input.GetKey (KeyCode.A)) {
 
-            transform.Rotate (Vector3.forward * rotationThisFrame);
+            transform.Rotate (-Vector3.forward * rotationThisFrame);
         } else if (Input.GetKey (KeyCode.D)) {
 
-            transform.Rotate (-Vector3.forward * rotationThisFrame);
+            transform.Rotate (Vector3.forward * rotationThisFrame);
         }
 
         rigidBody.freezeRotation = false; // resume physics control
