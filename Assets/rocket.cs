@@ -1,12 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿// using System.Collections;
+// using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class rocket : MonoBehaviour {
     [SerializeField] float rcsThrust = 100f;
     [SerializeField] float mainThrust = 100f;
+    [SerializeField] AudioClip mainEngine;
+    [SerializeField] AudioClip success;
+    [SerializeField] AudioClip death;  
+
     Rigidbody rigidBody;
     AudioSource audioSource;
+
+    enum State { Alive, Dying, Transcending }
+    State state = State.Alive;
     // Start is called before the first frame update
     void Start () {
         rigidBody = GetComponent<Rigidbody> ();
@@ -15,34 +23,59 @@ public class rocket : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        boost ();
-        Rotate ();
+        if (state == State.Alive) {
+            boost ();
+            Rotate ();
+        }
     }
 
     void OnCollisionEnter (Collision collision) {
+        if (state != State.Alive) { return; }
         switch (collision.gameObject.tag) {
             case "Friendly":
-                print ("OK");
+                //Do Nothing
                 break;
-            case "Fuel":
-                print ("Fuel");
+            case "Finish":
+                StartSuccessSequence();
                 break;
             default:
-                print ("Dead");
+                StartDeathSequence();               
                 break;
         }
+    }
+    private void StartSuccessSequence(){
+        state = State.Transcending;
+        audioSource.Stop();
+        audioSource.PlayOneShot(success);
+        Invoke ("LoadNextLevel", 1f);
+    }
+     private void StartDeathSequence(){
+        state = State.Dying;
+        audioSource.Stop();
+        audioSource.PlayOneShot(death);
+        Invoke ("LoadFirstLevel", 1f);
+    }
+    private void LoadNextLevel () {
+        SceneManager.LoadScene (1);
+    }
+    private void LoadFirstLevel () {
+        SceneManager.LoadScene (0);
     }
     private void boost () {
         if (Input.GetKey (KeyCode.Space)) //can boost while rotating
         {
-            rigidBody.AddRelativeForce (Vector3.up * mainThrust);
-            if (!audioSource.isPlaying) //so it doesn't layer
-            {
-                audioSource.Play ();
-            }
+            ApplyThrust();
         } else {
             audioSource.Stop ();
         }
+    }
+    private void ApplyThrust()
+    {
+        rigidBody.AddRelativeForce (Vector3.up * mainThrust);
+            if (!audioSource.isPlaying) //so it doesn't layer
+            {
+                audioSource.PlayOneShot(mainEngine);
+            }
     }
     private void Rotate () {
         rigidBody.freezeRotation = true; // take manual control of rotation
