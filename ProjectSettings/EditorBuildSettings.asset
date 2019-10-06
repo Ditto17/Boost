@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/AurynSky/Rockets Missiles and Bombs/Scenes/DemoScene_RMB.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Levels/Start Menu.unity
+    guid: 7f92c0997ea5a7f4287bd2539a489c1a
+  - enabled: 1
     path: Assets/Levels/LVL 1.unity
     guid: 5af069f02c6d2dd9ab323e1179408a06
   - enabled: 1
@@ -20,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/LVL 4.unity
     guid: b608388080bf99849804c875a8dac791
+  - enabled: 1
+    path: Assets/Levels/LVL 5.unity
+    guid: ee3018a8fab8c59028470948aaff8db1
   m_configObjects: {}
