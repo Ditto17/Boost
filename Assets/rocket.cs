@@ -64,7 +64,7 @@ public class rocket : MonoBehaviour {
         audioSource.Stop ();
         audioSource.PlayOneShot (death);
         deathParticle.Play ();
-        Invoke ("LoadFirstLevel", levelLoadDelay);
+        Invoke ("LoadCurrentLevel", levelLoadDelay);
     }
     private void LoadNextLevel () {
 
@@ -75,8 +75,9 @@ public class rocket : MonoBehaviour {
         }
         SceneManager.LoadScene (nextSceneIndex);
     }
-    private void LoadFirstLevel () {
-        SceneManager.LoadScene (0);
+    private void LoadCurrentLevel () {
+        int currentSceneIndex = SceneManager.GetActiveScene ().buildIndex;
+        SceneManager.LoadScene (currentSceneIndex);
     }
     private void boost () {
         if (Input.GetKey (KeyCode.Space)) //can boost while rotating

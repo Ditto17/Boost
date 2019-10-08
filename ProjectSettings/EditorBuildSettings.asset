@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Levels/Start Menu.unity
     guid: 7f92c0997ea5a7f4287bd2539a489c1a
   - enabled: 1
+    path: Assets/Levels/HowTo.unity
+    guid: 7d644511cbaae9a4e9bb0bbaa0f0bdae
+  - enabled: 1
     path: Assets/Levels/LVL 1.unity
     guid: 5af069f02c6d2dd9ab323e1179408a06
   - enabled: 1
@@ -26,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/LVL 5.unity
     guid: ee3018a8fab8c59028470948aaff8db1
+  - enabled: 1
+    path: Assets/Levels/LVL 6.unity
+    guid: 44b37f39def93f84a802a26405b0033d
   m_configObjects: {}
