@@ -101,11 +101,11 @@ public class rocket : MonoBehaviour {
     }
     private void Rotate () {
 
-       if (Input.GetKey (KeyCode.A)) {
-            RotateManually (-rcsThrust * Time.deltaTime);
-
-        } else if (Input.GetKey (KeyCode.D)) {
+       if (Input.GetKey (KeyCode.RightArrow)) {
             RotateManually (rcsThrust * Time.deltaTime);
+
+        } else if (Input.GetKey (KeyCode.LeftArrow)) {
+            RotateManually (-rcsThrust * Time.deltaTime);
         }
     }
     private void RotateManually (float rotationThisFrame) {

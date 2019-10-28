@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.091429256, g: 0.12140501, b: 0.137552, a: 1}
+  m_IndirectSpecularColor: {r: 0.091339014, g: 0.1225102, b: 0.14248544, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -54,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 12
+    serializedVersion: 10
     m_Resolution: 2
     m_BakeResolution: 40
     m_AtlasSize: 1024
@@ -62,7 +62,6 @@ LightmapSettings:
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
-    m_ExtractAmbientOcclusion: 0
     m_Padding: 2
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
@@ -77,16 +76,10 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVREnvironmentSampleCount: 500
-    m_PVREnvironmentReferencePointCount: 2048
-    m_PVRFilteringMode: 2
-    m_PVRDenoiserTypeDirect: 0
-    m_PVRDenoiserTypeIndirect: 0
-    m_PVRDenoiserTypeAO: 0
     m_PVRFilterTypeDirect: 0
     m_PVRFilterTypeIndirect: 0
     m_PVRFilterTypeAO: 0
-    m_PVREnvironmentMIS: 0
+    m_PVRFilteringMode: 2
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
@@ -94,8 +87,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ExportTrainingData: 0
-    m_TrainingDataDestination: TrainingData
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 112000000, guid: 2f6ba7b916e1d76039d36a0b2baacdbe,
     type: 2}
   m_UseShadowmask: 1
@@ -554,6 +546,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 122864004867470844, guid: d2612f4273c875c1a8ac9535903f8b0d,
+        type: 3}
+      propertyPath: m_Size
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2031453134, guid: d2612f4273c875c1a8ac9535903f8b0d, type: 3}
       propertyPath: m_Name
       value: Landing pad
@@ -3644,6 +3641,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 96781654013334952, guid: 54162e2e260346548912e3a67d069b67,
+        type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6158581132890807211, guid: 54162e2e260346548912e3a67d069b67,
         type: 3}
       propertyPath: m_Name
@@ -3703,6 +3705,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.53800005
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088183097130791516, guid: 54162e2e260346548912e3a67d069b67,
+        type: 3}
+      propertyPath: m_Range
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54162e2e260346548912e3a67d069b67, type: 3}
@@ -3815,7 +3822,7 @@ PrefabInstance:
     - target: {fileID: 6778521351711244046, guid: 549e5ef861547f4e1a497c0ea6beeb9f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -71.47
+      value: -80.2
       objectReference: {fileID: 0}
     - target: {fileID: 6778521351711244046, guid: 549e5ef861547f4e1a497c0ea6beeb9f,
         type: 3}
