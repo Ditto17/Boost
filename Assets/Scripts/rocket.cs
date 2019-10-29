@@ -37,6 +37,9 @@ public class rocket : MonoBehaviour {
         if (Input.GetKeyDown (KeyCode.L)) {
             LoadNextLevel ();
         }
+        else if (Input.GetKeyDown (KeyCode.R)) {
+            LoadCurrentLevel ();
+        }
     }
     void OnCollisionEnter (Collision collision) {
         if (isTransitioning) { return; }
