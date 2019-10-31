@@ -21,17 +21,17 @@ EditorBuildSettings:
     path: Assets/Levels/LVL 1.unity
     guid: 5af069f02c6d2dd9ab323e1179408a06
   - enabled: 1
-    path: Assets/Levels/LVL 2.unity
-    guid: 7ee05b025a9fc6b75905e302592cc388
-  - enabled: 1
-    path: Assets/Levels/LVL 3.unity
-    guid: 989b7fa9472b949b3888ffb8b90f21b6
-  - enabled: 1
     path: Assets/Levels/LVL 4.unity
     guid: b608388080bf99849804c875a8dac791
   - enabled: 1
+    path: Assets/Levels/LVL 2.unity
+    guid: 7ee05b025a9fc6b75905e302592cc388
+  - enabled: 1
     path: Assets/Levels/LVL 5.unity
     guid: ee3018a8fab8c59028470948aaff8db1
+  - enabled: 1
+    path: Assets/Levels/LVL 3.unity
+    guid: 989b7fa9472b949b3888ffb8b90f21b6
   - enabled: 1
     path: Assets/Levels/LVL 6.unity
     guid: 44b37f39def93f84a802a26405b0033d
